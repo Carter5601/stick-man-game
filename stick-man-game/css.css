@@ -1,0 +1,129 @@
+/* Project by : Carter Colton */
+/* Youtube : Carter Colton */
+/* Website : mindstairascension */
+
+html,
+body {
+    height: 100%;
+    margin:0;
+}
+
+body {
+    font-family: "Seogoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+
+.container { /* . to reference class */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#score { /* # to reference id */
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 2em;
+    font-weight: 900;
+}
+
+#introduction {
+    width: 200px; /* specifies the width of the element's content area. This “content” area is the portion inside the padding, border, and margin of an element (the box model). */
+    height: 150px;
+    position: absolute; /* positioned relative to nearest positioned ancestor */
+    font-weight: 600; /* how bold or light text will appear */
+    font-size: 0.8em;
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    transition: opacity 2s;
+}
+
+#restart {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    border-radius: 50%; /* rounds corners of an element's outer border edge. The 50% makes the element a perfect circle. */
+    color: white; /* text */
+    background-color: red; /* background of button */
+    border: none;
+    font-weight: 700;
+    font-size: 1.2em;
+    font-family: "Seoge UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: none; /* display sets if it is a block or inline block. display: none removes elements from document. */
+    cursor: pointer; /* Shows the mouse cursor as a pointer when it is over the restart element */
+}
+
+#perfect {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 2s; /* used to smoothly change opacity state from one level to another state */
+}
+
+#youtube,
+#youtube-card{
+    display: none;
+}
+
+@media (min-height: 425px) { /* you use the @ to only apply this css styling if the height has a minimum of 425px */
+    #youtube {
+        z-index: 2; /* elements with higher z-index will be placed above elements with lower z-index */
+        display: block;
+        width: 100px;
+        height: 70px;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: red;
+        border-radius: 50% / 11%; /* (first radius values) / top-left | top-right | bottom-right | bottom-left */
+        transform: scale(0.8); /* transform the element to 0.8 its size */
+        transition: transform 0.5s;
+    }
+}
+
+#youtube:hover,
+#youtube:focus { /* perform the effect if user hovers over or taps on the youtube element */
+    transform: scale(0.9);
+}
+
+#youtube::before { /* insert this before context of youtube element. Create a pseudo-element thar is the first child of the youtube element */
+    content: ""; /* replace an element with a generated value */
+    display: block;
+    position: absolute;
+    top: 7.5%; /* vertical position */
+    left: -6%; /* horizontal position */
+    width: 112%;
+    height: 85%;
+    background: red;
+    border-radius: 9% / 50%;
+}
+
+#youtube::after { /* these effects come directly after youtube element */
+    content:"";
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 45px;
+    height: 30px;
+    border: 15px solid transparent;
+    box-sizing: border-box; /* this makes padding and border included in the width and height */
+    border-left: 30px solid white;
+}
+
+#youtube span {
+    font-size: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+#youtube:hover + #youtube-card { /* the plus sign makes this only apply to the first #youtube-card right after youtube:hover occurs */
+    display: block;
+    position: absolute;
+    bottom: 12 px;
+    left: 10px;
+    padding: 25px 25px 25px 130px;
+    background-color: white;
+}
